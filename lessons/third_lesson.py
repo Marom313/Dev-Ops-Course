@@ -11,11 +11,18 @@ def try_except():
 
 
 def continue1():
-    with open("text_data.txt", "w+") as f:
+    with open("../text_data.txt", "w+") as f:
         f.write("this is some data inserted")
         f.seek(0)
         content2 = f.read()
         print(content2)
+
+
+def q10():
+    with open("../text_data.txt", "w+") as f:
+        f.write("this is some data inserted")
+        f.seek(0)
+        f.close()
 
 
 def thirdLesson():
@@ -30,21 +37,24 @@ def thirdLesson():
     - Open in binary mode. = b
     - Open a file for updating (reading and writing) = +
    """
-    file = open("data.txt", "r")
-    print(file)
-    content = file.read(20)
-    print(content)
-    file.close()
-    try:
-        file2 = open("non_existing_file.txt", "r")
-    except FileNotFoundError:
-        print("File does not exist")
-    with open("aaa.txt", "w+") as file3:
-        file3.write("Hello world!")
-        file3.seek(0)  # returns the pointer to the start of the file, needed after using write()
-        con = file3.read(2)
-        print(con)
-        print(try_except())
-        continue1()
+    # file = open("data.txt", "r")
+    # print(file)
+    # content = file.read(20)
+    # print(content)
+    # file.close()
+    # try:
+    #     file2 = open("non_existing_file.txt", "r")
+    # except FileNotFoundError:
+    #     print("File does not exist")
+    # with open("aaa.txt", "w+") as file3:
+    #     file3.write("Hello world!")
+    #     file3.seek(0)  # returns the pointer to the start of the file, needed after using write()
+    #     con = file3.read(2)
+    #     print(con)
+    #     print(try_except())
+    #     continue1()
 
+
+def run():
+    q10()
 # -------------------------------------------- The End -----------------------------------------------------------

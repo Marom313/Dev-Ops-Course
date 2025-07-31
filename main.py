@@ -1,6 +1,4 @@
-from first_lesson import list_tuple_set, dictionary
-from second_lesson import secondLesson
-from third_lesson import thirdLesson
+from lessons.third_lesson import thirdLesson, run
 
 
 def main():
@@ -9,8 +7,9 @@ def main():
 
     # list_tuple_set()
     # dictionary()
-    secondLesson()
+    # secondLesson()
     thirdLesson()
+    run()
 
     print(
         "-------------------------------------------- This is the end ---------------------------------------------------------")
