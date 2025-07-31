@@ -11,7 +11,7 @@ def try_except():
 
 
 def continue1():
-    with open("../text_data.txt", "w+") as f:
+    with open("../txts/text_data.txt", "w+") as f:
         f.write("this is some data inserted")
         f.seek(0)
         content2 = f.read()
@@ -19,7 +19,7 @@ def continue1():
 
 
 def q10():
-    with open("../text_data.txt", "w+") as f:
+    with open("../txts/text_data.txt", "w+") as f:
         f.write("this is some data inserted")
         f.seek(0)
         f.close()
