@@ -2,6 +2,7 @@ import requests as req
 
 URL = "https://v2.jokeapi.dev/joke/Programming,Dark?type=single"
 URL2 = "https://v2.jokeapi.dev/joke/Any?type=single"
+URL3 = "https://v2.jokeapi.dev/joke/Any"
 
 
 def lessonSix():
@@ -63,7 +64,7 @@ def lessonSix():
         except req.exceptions.RequestExceptionk as e:
             print("Error in initializing joke: ", e)
 
-    def exAPI3():
+    def exAPI4():
         jokes_dic = {}
         try:
             for i in range(10):
@@ -78,8 +79,48 @@ def lessonSix():
             if len(list(jokes_dic[i])) > 50:
                 print("Joke: ", jokes_dic[i])
 
+    def exAPI5():
+        offensive_words = ['dick', 'cunt', 'ass', 'nigga', 'white', 'old', 'young', 'tits', 'masturbate', 'pussy']
+        res_dic = {}
+        try:
+            response = req.get(URL3)
+            response.raise_for_status()  # raise an error if not succeed
+            res_dic = response.json()  # parsing te response to a dictionary
+        except req.exceptions.RequestExceptionk as e:
+            print("Error in initializing joke: ", e)
+        if res_dic['type'] == 'twopart':
+            j = (res_dic['setup'] + res_dic['delivery']).split(' ')
+            for i in range(len(offensive_words)):
+                if offensive_words[i] in j:
+                    j = ['****' if word == offensive_words[i] else word for word in j]
+                    print(j)
+        elif res_dic['type'] == 'single':
+            j = res_dic['joke'].split(' ')
+            for i in range(len(offensive_words)):
+                if offensive_words[i] in j:
+                    j = ['****' if word == offensive_words[i] else word for word in j]
+                    print(j)
+
+    def exAPI7():
+        categories = {}
+        for i in range(10):
+            try:
+                response = req.get(URL2)
+                response.raise_for_status()
+                res_dic = response.json()
+            except req.exceptions.RequestExceptionk as e:
+                print("Error in initializing joke: ", e)
+            j_type = res_dic['category']
+            print(j_type + '.')
+            if j_type in categories:
+                categories[j_type] += 1
+            else:
+                categories[j_type] = 1
+        print(categories)
+
     # projectLoadJoke()
     # exAPI1()
     # exAPI2()
-    exAPI3()
-    # exAPI1()
+    # exAPI4()
+    # exAPI5()
+    exAPI7()
