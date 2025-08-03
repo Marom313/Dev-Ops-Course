@@ -21,8 +21,10 @@ def lessonSix():
                 print(res_dic['joke'])
         except req.exceptions.RequestExceptionk as e:
             print("Error in initializing joke: ", e)
+            return
         except ValueError:
             print("Response not Json")
+            return
 
     def exAPI1():
         # Question 1:
@@ -41,6 +43,7 @@ def lessonSix():
                     break
         except req.exceptions.RequestExceptionk as e:
             print("Error in initializing joke: ", e)
+            return
 
     def exAPI2():
         ratings = {}
@@ -61,8 +64,9 @@ def lessonSix():
                     avg.append(temp)
             print("\n\n\n")
             print("Average rating for all jokes is: ", sum(avg) / 10)
-        except req.exceptions.RequestExceptionk as e:
+        except req.exceptions.RequestException as e:
             print("Error in initializing joke: ", e)
+            return
 
     def exAPI4():
         jokes_dic = {}
@@ -75,6 +79,7 @@ def lessonSix():
                     jokes_dic[i] = res_dic['joke']
         except req.exceptions.RequestException as e:
             print("Error in initializing joke: ", e)
+            return
         for i in range(10):
             if len(list(jokes_dic[i])) > 50:
                 print("Joke: ", jokes_dic[i])
@@ -88,6 +93,7 @@ def lessonSix():
             res_dic = response.json()  # parsing te response to a dictionary
         except req.exceptions.RequestExceptionk as e:
             print("Error in initializing joke: ", e)
+            return
         if res_dic['type'] == 'twopart':
             j = (res_dic['setup'] + res_dic['delivery']).split(' ')
             for i in range(len(offensive_words)):
@@ -110,6 +116,7 @@ def lessonSix():
                 res_dic = response.json()
             except req.exceptions.RequestExceptionk as e:
                 print("Error in initializing joke: ", e)
+                return
             j_type = res_dic['category']
             print(j_type + '.')
             if j_type in categories:
