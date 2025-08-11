@@ -1,3 +1,6 @@
+# main, imports
+
+
 import math as math
 import random as rand
 import os as os
@@ -9,4 +12,3 @@ def runIt():
     print(working_directory)
     time_now = dt.datetime.now()
     print(time_now)
-    

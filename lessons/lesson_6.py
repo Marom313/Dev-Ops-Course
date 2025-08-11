@@ -1,3 +1,5 @@
+# API
+
 import requests as req
 
 URL = "https://v2.jokeapi.dev/joke/Programming,Dark?type=single"
@@ -109,6 +111,7 @@ def lessonSix():
 
     def exAPI7():
         categories = {}
+        res_dic = {}
         for i in range(10):
             try:
                 response = req.get(URL2)
@@ -116,7 +119,7 @@ def lessonSix():
                 res_dic = response.json()
             except req.exceptions.RequestExceptionk as e:
                 print("Error in initializing joke: ", e)
-                return
+                # return
             j_type = res_dic['category']
             print(j_type + '.')
             if j_type in categories:

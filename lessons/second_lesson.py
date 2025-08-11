@@ -1,5 +1,5 @@
 # -------------------------------------------- Excersize - List, Tuple, Set --------------------------------------------
-
+# python Basics
 
 def secondLesson():
     new_lst = [(i + 1) ** 2 for i in range(10)]
@@ -34,5 +34,5 @@ def secondLesson():
     print(stringss)
     stringsNotEmpty = [s for s in stringss if s]
     print(stringsNotEmpty)
-    
+
 # -------------------------------------------- The End --------------------------------------------
