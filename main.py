@@ -5,7 +5,8 @@ from lessons.lesson_7 import run7
 from lessons.lesson_8 import run8
 from lessons.lesson_9 import run9
 from lessons.lesson_10 import run10
-from projects.crontab_tool.crontab_tool import runCronTab
+# from projects.crontab_tool.crontab_tool import runCronTab
+from projects.crontab_tool.crontab_tool2 import runCronTab2
 
 
 def main():
@@ -23,7 +24,8 @@ def main():
     # run8()
     # run9()
     # run10()
-    runCronTab()
+    # runCronTab()
+    runCronTab2()
     print("\n\n" +
           "-------------------------------------------- This is the end ---------------------------------------------------------")
 
