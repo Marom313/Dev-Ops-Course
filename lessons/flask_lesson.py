@@ -1,6 +1,6 @@
 # Project Flask-Discord integration
 import sqlite3
-from discord_webhook import DiscordWebHook
+from discordwebhook import Discord
 from datetime import datetime, timedelta
 import requests as req
 
@@ -12,11 +12,30 @@ app = Flask(__name__)
 # setup a SQL DB
 conn = sqlite3.connect('messages.db')
 cursor = conn.cursor()
-cursor.excute('CREATE IF NOT EXISTS data (id INTEGER PRIMARY KEY AUTOINCREMENT)')
+cursor.execute("""
+               CREATE TABLE IF NOT EXISTS messages
+               (
+                   id
+                   INTEGER
+                   PRIMARY
+                   KEY
+                   AUTOINCREMENT,
+                   content
+                   TEXT
+                   NOT
+                   NULL,
+                   timestamp
+                   DATETIME
+                   NOT
+                   NULL
+                   DEFAULT
+                   CURRENT_TIMESTAMP
+               );
+               """)
 conn.commit()
 
 # discord_webhook_URL
-discord_webhook_url = 'MY URL'
+discord_webhook_url = 'https://discord.com/api/webhooks/1404765562982109194/7cuoe5Q-OUZaiPzgdWxuVqOajrsuQSsNlgZgP_WctfpRANk_4mPd3zIp_VIZkICzC7Bm'
 
 
 # Endpoint 3: Message retrieval
